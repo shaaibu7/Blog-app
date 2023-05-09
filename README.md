@@ -84,7 +84,7 @@ Clone this repository to your desired folder:
 
 This repository includes files with database migrations that can be used to recreate a database:
 
-- Use [schema.sql](./db/migrate/schema.rb) to create all tables.
+- Use [schema.sql](./db/schema.rb) to create all tables.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
