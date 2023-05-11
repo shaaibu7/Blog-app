@@ -10,6 +10,4 @@ class Post < ApplicationRecord
   def five_recent_post
     comments.order(created_at: :desc).limit(5)
   end
-
-  
 end
