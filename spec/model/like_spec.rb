@@ -12,4 +12,8 @@ RSpec.describe Like, type: :model do
   it 'is valid with correct attributes' do
     expect(subject).to be_valid
   end
+
+  it 'should update like counter' do
+    expect(post.likes_counter).to eq 1
+  end
 end
