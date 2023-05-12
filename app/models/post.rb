@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   after_save :update_post_counter
-  
+
   def five_recent_post
     comments.order(created_at: :desc).limit(5)
   end
