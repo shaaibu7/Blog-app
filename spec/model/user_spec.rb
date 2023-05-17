@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'Should be a valid user with attributes' do
-    expect(user).to_not be_valid
+    expect(user).to be_valid
   end
 
   it 'should not be valid with a negative post counter' do
@@ -29,18 +29,14 @@ RSpec.describe User, type: :model do
     expect(user).to_not be_valid
   end
 
-  describe 'three_recent_post' do
-    let(:user) { User.new(name: 'shaibu', posts_counter: 0) }
-    let!(:post1) { Post.new(author: user, text: 'hello', title: 'world') }
-    let!(:post2) { Post.new(author: user, text: 'hello', title: 'world') }
-    let!(:post3) { Post.new(author: user, text: 'hello', title: 'world') }
+  it 'should return three recent post' do
+    user1 = User.new(name: 'John', photo: 'www.eample.com', bio: 'Life science', posts_counter: 0)
+    user1.save
+    @post1 = user1.posts.create!(title: 'something', text: 'hello', comments_counter: 0, likes_counter: 0)
+    @post2 = user1.posts.create!(title: 'some nice', text: 'hello', comments_counter: 0, likes_counter: 0)
+    @post3 = user1.posts.create!(title: 'some new', text: 'hello', comments_counter: 0, likes_counter: 0)
+    @post4 = user1.posts.create!(title: 'some hard', text: 'hello', comments_counter: 0, likes_counter: 0)
 
-    before do
-      user.posts = [post1, post2, post3]
-      user.save
-    end
-    it 'returns the three most recent posts' do
-      expect(user.three_recent_post).to eq([post3, post2, post1])
-    end
+    expect(user1.three_recent_post).to eq([@post4, @post3, @post2])
   end
 end

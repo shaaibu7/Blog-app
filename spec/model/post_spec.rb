@@ -1,24 +1,27 @@
 require 'rails_helper'
 
-RSpec.describe Post, type: model do
-  user = User.new(name: 'John',
-                  photo: 'www.eample.com',
-                  bio: 'Life science',
-                  posts_counter: 0)
+RSpec.describe Post, type: :model do
+  user = User.new(name: 'John', photo: 'www.eample.com', bio: 'Life science', posts_counter: 0)
 
-  post = Post.new(title: 'Journey', text: 'subject', author: user, comments_counter: 0, likes_counter: 0)
+  post = Post.new(title: 'something', text: 'hello', author: user, comments_counter: 0, likes_counter: 0)
 
   it 'is valid with correct attributes' do
     expect(post).to be_valid
   end
 
-  it 'is valid with correct attributes' do
-    post.title = nil
+  it 'is not valid with correct attributes' do
+    post.title = ''
+    expect(post).to_not be_valid
+  end
+
+  it 'is valid with title less than 250' do
+    post.title = 'hello'
     expect(post).to be_valid
   end
 
-  it 'is invalid with title less than 250' do
-    expect(post).to be_valid
+  it 'is invalid with title greater than 250' do
+    post.title = 'hello' * 200
+    expect(post).to_not be_valid
   end
 
   it 'is invalid with negative comment counter' do
@@ -31,27 +34,18 @@ RSpec.describe Post, type: model do
     expect(post).to_not be_valid
   end
 
-  describe 'five most recent posts' do
-    let(:user) { User.new(name: 'shaibu') }
-    let(:postone) { Post.new(author: user, text: 'hello', title: 'journey') }
-    let!(:comment1) { Comment.new(post: postone, author: user, text: 'hello') }
-    let!(:comment2) { Comment.new(post: postone, author: user, text: 'hello') }
-    let!(:comment3) { Comment.new(post: postone, author: user, text: 'hello') }
-    let!(:comment4) { Comment.new(post: postone, author: user, text: 'hello') }
-    let!(:comment5) { Comment.new(post: postone, author: user, text: 'hello') }
-    let!(:comment6) { Comment.new(post: postone, author: user, text: 'hello') }
+  it 'should check five most recent post' do
+    user = User.new(name: 'John', photo: 'www.eample.com', bio: 'Life science', posts_counter: 0)
 
-    before do
-      post.comments = [comment1, comment2, comment3, comment4, comment5]
-      post.save
-    end
+    post2 = Post.new(title: 'something', text: 'hello', author: user, comments_counter: 0, likes_counter: 0)
 
-    it 'returns the five most recent comments' do
-      expect(post.five_recent_post).to eq([comment5, comment4, comment3, comment2, comment1])
-    end
+    @comment1 = Comment.create!(text: 'hello world', author: user, post: post2)
+    @comment2 = Comment.create!(text: 'hello world', author: user, post: post2)
+    @comment3 = Comment.create!(text: 'hello world', author: user, post: post2)
+    @comment4 = Comment.create!(text: 'hello world', author: user, post: post2)
+    @comment5 = Comment.create!(text: 'hello world', author: user, post: post2)
+    @comment6 = Comment.create!(text: 'hello world', author: user, post: post2)
 
-    it 'should update user posts_counter' do
-      expect(user.posts_counter).to eq(2)
-    end
+    expect(post2.five_recent_post).to eq([@comment6, @comment5, @comment4, @comment3, @comment2])
   end
 end
