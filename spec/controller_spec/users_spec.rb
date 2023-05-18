@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-
   describe 'GET /users/index' do
     it 'checks if request is successful' do
       get '/users/index'
@@ -33,9 +32,8 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'should render template for user' do
-      get "/users/show"
+      get '/users/show'
       expect(response).to render_template('show')
     end
-
   end
 end
