@@ -18,7 +18,7 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-  describe 'GET "/users/#{user.id}" to fetch specific users' do
+  describe 'GET to fetch specific users' do
     user = User.new(name: 'John', photo: 'www.eample.com', bio: 'Life science', posts_counter: 0)
 
     it 'should return successful when a user is created' do
@@ -27,7 +27,7 @@ RSpec.describe 'Users', type: :request do
     end
 
     it 'should return response body' do
-      get users_path
+      get "/users/#{user.id}"
       expect(response.body).to include('<h1>Router for all users</h1>')
     end
 
