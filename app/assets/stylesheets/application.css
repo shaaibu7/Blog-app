@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+ 
+ /* index for users */
+ 
+.parent-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 3rem;
+  justify-content: center;
+}
+
+.user-image {
+  padding-top: 1.5rem;
+}
+
+.user-details {
+  display: flex;
+  border: 1px solid brown;
+  height: 5rem;
+  width: 20rem;
+  margin-top: 1.5rem;
+}
+
+h1 {
+  padding-left: 8px;
+  width: 7rem;
+}
+
+p {
+  width: 10rem;
+  padding-top: 2rem;
+  padding-left: 3rem;
+}
+
+

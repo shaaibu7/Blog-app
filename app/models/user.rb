@@ -9,3 +9,5 @@ class User < ApplicationRecord
     posts.order(created_at: :desc).limit(3)
   end
 end
+
+ user = User.new(name: 'John', photo: 'www.eample.com', bio: 'Life science', posts_counter: 0)
