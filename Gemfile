@@ -15,6 +15,8 @@ group :test do
   gem 'rspec-rails'
 end
 
+gem 'rails-controller-testing'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
