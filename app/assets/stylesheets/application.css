@@ -15,12 +15,11 @@
  */
  
  /* index for users */
- 
+
 .parent-container {
   display: flex;
   flex-direction: row;
   column-gap: 3rem;
-  justify-content: center;
 }
 
 .user-image {
@@ -46,4 +45,72 @@ p {
   padding-left: 3rem;
 }
 
+.parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+.user-bio {
+  border: 1px solid brown;
+  margin-top: 2rem;
+  width: 28rem;
+}
+
+h2 {
+  padding-left: 1rem;
+}
+
+.bio-text {
+  padding: 1rem;
+}
+
+.post {
+  border: 1px solid brown;
+  margin-top: 2rem;
+  width: 28rem;
+}
+
+.post-text {
+  padding-left: 1rem;
+}
+
+.post-comments-likes {
+  padding-left: 17rem;
+}
+
+.all-posts {
+  margin-left: 11rem;
+  text-decoration: none;
+  border: 1px solid brown;
+  width: 7rem;
+  margin-top: 3rem;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+
+/* styling for posts */
+
+.comment-container {
+  border: 1px solid brown;
+  margin-top: 3rem;
+  width: 28rem;
+}
+
+.page {
+  margin-top: 15rem;
+}
+
+.comment-likes {
+  display: flex;
+  width: 35rem;
+}
+
+.comment-and-likes {
+  padding-top: 0.5rem;
+}
+
+.comment-text {
+  padding: 1rem;
+}

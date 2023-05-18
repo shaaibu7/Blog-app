@@ -10,8 +10,8 @@
     </div>
 
     <div class="user-details">
-      <h1><%= user.name %></h1>
-      <p>Number of post <%= user.posts_counter %></p>
+      <h1><%= link_to user.name, user_path(user) %></h1>
+      <p>Number of post: <%= user.posts_counter %></p>
     </div>
   </div>
   <% end %>
