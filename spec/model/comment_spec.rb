@@ -20,6 +20,6 @@ RSpec.describe Comment, type: :model do
 
   it 'should update comment counter' do
     comment.save
-    expect(comment.comments_counter).to eq(2)
+    expect(post.comments_counter).to eq(2)
   end
 end

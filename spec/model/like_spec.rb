@@ -5,8 +5,8 @@ RSpec.describe Like, type: :model do
 
   post = Post.new(title: 'something', text: 'hello', author: user, comments_counter: 0, likes_counter: 0)
 
-  subject do
-    described_class.new(author: user, post: post)
+  subject(:like) do
+    Like.new(author: user, post: post)
   end
 
   it 'is valid with correct attributes' do
@@ -14,6 +14,7 @@ RSpec.describe Like, type: :model do
   end
 
   it 'should update like counter' do
-    expect(post.likes_counter).to eq 1
+    like.update_like_counter
+    expect(post.likes_counter).to eq(1)
   end
 end

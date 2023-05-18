@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '3.0.2'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
@@ -14,6 +14,8 @@ gem 'sprockets-rails'
 group :test do
   gem 'rspec-rails'
 end
+
+gem 'rails-controller-testing'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
