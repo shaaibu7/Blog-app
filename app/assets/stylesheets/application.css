@@ -113,3 +113,27 @@ h2 {
 .comment-text {
   padding: 1rem;
 }
+
+/* forms */
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  row-gap: 1rem;
+}
+
+.create-post-text {
+  width: 25%;
+}
+
+.create-new-post {
+  padding: 1rem;
+}
+
+.create-new-post-btn {
+  padding: 0.2rem;
+  margin-top: 1rem;
+  background-color: brown;
+  border-radius: 5px;
+}
