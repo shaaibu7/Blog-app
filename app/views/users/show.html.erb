@@ -1,1 +1,34 @@
-<h1>Routes for a specific user with id</h1>
+<head>
+  <%= stylesheet_link_tag 'application.css' %>
+</head>
+
+<div class="parent">
+  <div class="parent-container">
+    <div class="user-image">
+      <img src=<%= @user.photo %> width="75rem">
+    </div>
+
+    <div class="user-details">
+      <h1><%= @user.name %></h1>
+      <p>Number of post: <%= @user.posts_counter %></p>
+    </div>
+  </div>
+
+  <div class="user-bio">
+      <h2>Bio</h2>
+      <p class="bio-text"><%= @user.bio %></p>
+  </div>
+
+
+  <% @user.three_recent_post.each do |post| %>
+  <div class="post">
+    <h2>Post: <%= link_to post.id, user_posts_path(@user, post) %></h2>
+    <p class="post-text"><%= post.text %> </p>
+    <p class="post-comments-likes">
+      comments : <%= post.comments_counter %>
+      likes : <%= post.likes_counter %>
+    </p>
+  </div>
+  <% end %>
+  <a class="all-posts" href=<%= @user.id %> >See all posts</a>
+</div>
