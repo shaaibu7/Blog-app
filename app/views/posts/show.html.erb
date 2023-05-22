@@ -18,6 +18,16 @@
       </p>
     </div>
 
+    <button class="create-new-post-btn">
+      <%= link_to 'Create New Comment', new_user_post_comment_path(@post.author, @post) %>
+    </button>
+
+    <div class="form-section">
+      <%= form_with model: Like, url: user_post_likes_path(@post.author, @post) do |f| %>
+        <%= f.submit 'Like Post' %>
+      <% end %>
+    </div>
+
     <div class="comment-container">
       <% @post.comments.each do |comment| %>
       <p><%= comment.author.name %> : <%= comment.text %></p>

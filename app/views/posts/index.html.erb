@@ -14,6 +14,10 @@
     </div>
   </div>
 
+  <button class="create-new-post-btn">
+    <%= link_to 'Create new post', new_user_post_path(@user) %>
+  </button>
+
   <% @user.posts.each do |post| %>
   <div class="post">
     <h2>Post: <%= link_to post.title, user_post_path(@user, post) %></h2>

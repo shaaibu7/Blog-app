@@ -22,7 +22,7 @@
 
   <% @user.three_recent_post.each do |post| %>
   <div class="post">
-    <h2>Post: <%= link_to post.id, user_posts_path(@user, post) %></h2>
+    <h2>Post: <%= link_to post.title, user_post_path(@user, post) %></h2>
     <p class="post-text"><%= post.text %> </p>
     <p class="post-comments-likes">
       comments : <%= post.comments_counter %>
