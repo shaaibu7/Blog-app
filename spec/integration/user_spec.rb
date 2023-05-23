@@ -6,11 +6,11 @@ RSpec.describe 'Users', type: :system do
     @postone = Post.create(title: 'something', text: 'hello', author: @user, comments_counter: 0, likes_counter: 0)
     @posttwo = Post.create(title: 'cool', text: 'world', author: @user, comments_counter: 0, likes_counter: 0)
     @postthree = Post.create(title: 'good', text: 'journey', author: @user, comments_counter: 0, likes_counter: 0)
-    @postfour = Post.create(title: 'amazing', text: 'space travel', author: @user, comments_counter: 0, likes_counter: 0)
-
+    @postfour = Post.create(title: 'amazing', text: 'space travel', author: @user, comments_counter: 0,
+                            likes_counter: 0)
   end
 
-  describe  'Test for index page of users' do
+  describe 'Test for index page of users' do
     it 'should test for correct content on the page' do
       visit users_path
       expect(page).to have_content(@user.name)
@@ -18,7 +18,7 @@ RSpec.describe 'Users', type: :system do
 
     it 'should show profile picture for each user' do
       visit users_path
-      expect(@user,photo).to have_css('img')
+      expect(@user, photo).to have_css('img')
     end
 
     it 'should show number of posts for each user' do
@@ -67,8 +67,8 @@ RSpec.describe 'Users', type: :system do
     end
 
     it 'should redirect to users show page when i click on user post' do
-      visit user_post_path 
-      expect(current_path).to match(user_post_path(@user.id)) 
+      visit user_post_path
+      expect(current_path).to match(user_post_path(@user.id))
     end
 
     it 'should redirect to user index page when user click see all post' do

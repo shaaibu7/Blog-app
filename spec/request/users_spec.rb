@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
-  describe "GET /users" do
+  describe 'GET /users' do
     user = User.create(name: 'Tom', photo: 'www.eample.com', bio: 'Life science', posts_counter: 0)
 
     it 'checks if request is successful' do
-      get "/users"
+      get '/users'
       expect(response).to be_successful
     end
 

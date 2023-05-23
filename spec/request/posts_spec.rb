@@ -4,7 +4,7 @@ RSpec.describe 'Posts', type: :request do
   user = User.create(name: 'John', photo: 'www.eample.com', bio: 'Life science', posts_counter: 0)
   post = Post.create(title: 'something', text: 'hello', author: user, comments_counter: 0, likes_counter: 0)
 
-  describe 'GET /users/#{user.id}/posts/#{post.id}' do
+  describe "GET /users/#{user.id}/posts/#{post.id}" do
     it 'should return a successful request' do
       get "/users/#{user.id}/posts/#{post.id}"
       expect(response).to be_successful
