@@ -11,9 +11,14 @@ gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
-group :test do
-  gem 'rspec-rails'
+group :development, :test do
+  gem 'capybara'
+  gem 'rspec-rails', '>= 3.9.0'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
+
+gem 'nokogiri', '1.14.3'
 
 gem 'rails-controller-testing'
 
@@ -70,11 +75,4 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-end
-
-group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
 end
