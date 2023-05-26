@@ -4,7 +4,7 @@ class UsersController < ActionController::Base
   end
 
   def show
-    if params[:id] = 'sign out'
+    if (params[:id] = 'sign out')
       sign_out_and_redirect
     else
       find_user
