@@ -18,6 +18,8 @@ group :development, :test do
   gem 'webdrivers'
 end
 
+gem 'devise'
+
 gem 'nokogiri', '1.14.3'
 
 gem 'rails-controller-testing'
