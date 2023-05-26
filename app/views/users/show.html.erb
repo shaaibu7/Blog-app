@@ -19,6 +19,10 @@
       <p class="bio-text"><%= @user.bio %></p>
   </div>
 
+  <button class="create-new-post-btn">
+    <%= link_to 'Create new post', new_user_post_path(current_user) %>
+  </button>
+
 
   <% @user.three_recent_post.each do |post| %>
   <div class="post">

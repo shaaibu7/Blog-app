@@ -3,6 +3,10 @@
 </head>
 
 <div>
+  <div class="sign-btn">
+    <%= link_to 'Sign out', destroy_user_session_path %>
+  <div>
+
   <%@users.each do |user|%>
   <div class="parent-container">
     <div class="user-image">
