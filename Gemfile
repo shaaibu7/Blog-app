@@ -13,10 +13,10 @@ gem 'sprockets-rails'
 
 group :development, :test do
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'rspec-rails', '>= 3.9.0'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'database_cleaner'
 end
 
 gem 'nokogiri', '1.14.3'
