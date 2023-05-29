@@ -32,51 +32,51 @@ RSpec.describe 'Users', type: :feature do
       click_link @user.name
       expect(page).to have_current_path(user_path(@user))
     end
+  end
+
+  describe 'Test for show page for users' do
+    it 'should show users profile picture' do
+      visit user_path(@user.id)
+      expect(page).to have_css('img')
     end
 
-    describe 'Test for show page for users' do
-      it 'should show users profile picture' do
-        visit user_path(@user.id)
-        expect(page).to have_css('img')
-      end
+    it 'should show the users username' do
+      visit user_path(@user.id)
+      expect(page).to have_content(@user.name)
+    end
 
-      it 'should show the users username' do
-        visit user_path(@user.id)
-        expect(page).to have_content(@user.name)
-      end
+    it 'should show user number of posts' do
+      visit user_path(@user.id)
+      expect(page).to have_content(@user.posts_counter)
+    end
 
-      it 'should show user number of posts' do
-        visit user_path(@user.id)
-        expect(page).to have_content(@user.posts_counter)
-      end
+    it 'should show the users bio' do
+      visit user_path(@user.id)
+      expect(page).to have_content(@user.bio)
+    end
 
-      it 'should show the users bio' do
-        visit user_path(@user.id)
-        expect(page).to have_content(@user.bio)
-      end
+    it 'should show the users first three post' do
+      visit user_path(@user.id)
+      expect(page).to have_content(@user.three_recent_post.first.title)
+      expect(page).to have_content(@user.three_recent_post.second.title)
+      expect(page).to have_content(@user.three_recent_post.third.title)
+    end
 
-      it 'should show the users first three post' do
-        visit user_path(@user.id)
-        expect(page).to have_content(@user.three_recent_post.first.title)
-        expect(page).to have_content(@user.three_recent_post.second.title)
-        expect(page).to have_content(@user.three_recent_post.third.title)
-      end
+    it 'should button to view all users post' do
+      visit user_path(@user.id)
+      expect(page).to have_link('See all posts')
+    end
 
-      it 'should button to view all users post' do
-        visit user_path(@user.id)
-        expect(page).to have_link('See all posts')
-      end
+    it 'should redirect to users show page when i click on user post' do
+      visit user_posts_path(@user)
+      click_link @postone.title
+      expect(current_path).to match(user_posts_path(@user.id))
+    end
 
-      it 'should redirect to users show page when i click on user post' do
-        visit user_posts_path(@user)
-        click_link @postone.title
-        expect(current_path).to match(user_posts_path(@user.id))
-      end
-
-      it 'should redirect to user index page when user click see all post' do
-        visit user_path(@user.id)
-        click_link 'See all posts'
-        expect(current_path).to match(user_posts_path(@user.id))
-      end
-      end
+    it 'should redirect to user index page when user click see all post' do
+      visit user_path(@user.id)
+      click_link 'See all posts'
+      expect(current_path).to match(user_posts_path(@user.id))
+    end
   end
+end
