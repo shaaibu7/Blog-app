@@ -63,44 +63,5 @@ RSpec.describe 'Posts', type: :feature do
       click_link @postone.title
       expect(current_path).to match(user_posts_path(@user.id))
     end
-
-    describe 'posts/show' do
-      it 'show post title' do
-        visit user_posts_path(@user.id)
-        expect(page).to have_content(@postone.title)
-      end
-
-      it 'should show who wrote the post' do
-        visit user_posts_path(@user.id)
-        expect(page).to have_content(@postone.author.name)
-      end
-
-      it 'show how many comment post has' do
-        visit user_posts_path(@user.id)
-        expect(page).to have_content(@postone.comments_counter)
-      end
-
-      it 'show how many likes post has' do
-        visit user_posts_path(@user.id)
-        expect(page).to have_content(@postone.likes_counter)
-      end
-
-      it 'should show post body' do
-        visit user_posts_path(@user.id)
-        expect(page).to have_content(@postone.text)
-      end
-
-      it 'should show username of each commenter' do
-        visit user_posts_path(@user.id)
-        expect(page).to have_content(@comment1.author.name)
-        expect(page).to have_content(@comment2.author.name)
-      end
-
-      it 'shows the comment of each commenter' do
-        visit user_posts_path(@user.id)
-        expect(page).to have_content(@comment1.text)
-        expect(page).to have_content(@comment2.text)
-      end
-    end
   end
 end

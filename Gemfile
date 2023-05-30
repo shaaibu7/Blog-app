@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.2'
+ruby '3.2.2'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
@@ -13,7 +13,6 @@ gem 'sprockets-rails'
 
 group :development, :test do
   gem 'capybara'
-  gem 'database_cleaner'
   gem 'rspec-rails', '>= 3.9.0'
   gem 'selenium-webdriver'
   gem 'webdrivers'
