@@ -4,16 +4,11 @@ RSpec.describe 'Users', type: :system do
   before(:each) do
     @user = User.create(name: 'Kaplan', photo: 'https://pic.com', bio: 'Life science',
                         posts_counter: 0)
-    # @postone = Post.create(title: 'something', text: 'hello', author: @user, comments_counter: 0, likes_counter: 0)
-    # @posttwo = Post.create(title: 'cool', text: 'world', author: @user, comments_counter: 0, likes_counter: 0)
-    # @postthree = Post.create(title: 'good', text: 'journey', author: @user, comments_counter: 0, likes_counter: 0)
-    # @postfour = Post.create(title: 'amazing', text: 'space travel', author: @user, comments_counter: 0,
-    #                         likes_counter: 0)
   end
 
   describe 'Test for index page of users' do
-    it 'should test for correct content on the page' do
-      visit '/'
+    it 'should show username for all other users' do
+      visit users_path
       expect(page).to have_content(@user.name)
     end
 
