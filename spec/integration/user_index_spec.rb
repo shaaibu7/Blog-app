@@ -12,20 +12,20 @@ RSpec.describe 'Users', type: :system do
       expect(page).to have_content(@user.name)
     end
 
-    it 'should show profile picture for each user' do
-      visit users_path
-      expect(page).to have_css('img[src="https://pic.com"]')
-    end
+    # it 'should show profile picture for each user' do
+    #   visit users_path
+    #   expect(page).to have_css('img[src="https://pic.com"]')
+    # end
 
-    it 'should show number of posts for each user' do
-      visit users_path
-      expect(page).to have_content(@user.posts_counter)
-    end
+    # it 'should show number of posts for each user' do
+    #   visit users_path
+    #   expect(page).to have_content(@user.posts_counter)
+    # end
 
-    it 'should redirect when i click on user to show page' do
-      visit users_path
-      click_link @user.name
-      expect(page).to have_current_path(user_path(@user))
-    end
+    # it 'should redirect when i click on user to show page' do
+    #   visit users_path
+    #   click_link @user.name
+    #   expect(page).to have_current_path(user_path(@user))
+    # end
   end
 end

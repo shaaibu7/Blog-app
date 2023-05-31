@@ -3,14 +3,18 @@
 </head>
 
 <div>
+  <div class="sign-btn">
+    <%= link_to 'Sign out', destroy_user_session_path %>
+  <div>
+
   <%@users.each do |user|%>
   <div class="parent-container">
     <div class="user-image">
-      <img src=<%= user.photo %> />
+      <img src=<%= user.photo %> width="75rem">
     </div>
 
     <div class="user-details">
-      <h1><%= link_to user.name, user_path(user) %></h1>
+      <div class="author-name"><%= link_to user.name, user_path(user) %></div>
       <p>Number of post: <%= user.posts_counter %></p>
     </div>
   </div>
