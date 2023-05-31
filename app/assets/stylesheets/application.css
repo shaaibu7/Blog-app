@@ -137,3 +137,9 @@ h2 {
   background-color: brown;
   border-radius: 5px;
 }
+
+.user-reg {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
