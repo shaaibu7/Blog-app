@@ -147,5 +147,9 @@ h2 {
 }
 
 .author-name {
-  width: 100%;
+  font-size: 2rem;
+  width: 45%;
+  height: 0%;
+  margin-top: 1.5rem;
+  padding-left: 3px;
 }
