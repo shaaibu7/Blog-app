@@ -22,6 +22,17 @@
       <%= link_to 'Create New Comment', new_user_post_comment_path(@post.author, @post) %>
     </button>
 
+    <div>
+      <% if can?(:destroy, @post) %>
+      <%= link_to user_post_path(@user, @post), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure sure?"
+      }  do %>
+      <button><%= t('.delete post') %></button>
+      <% end %>
+    <% end %>
+    </div>
+
     <div class="form-section">
       <%= form_with model: Like, url: user_post_likes_path(@post.author, @post) do |f| %>
         <%= f.submit 'Like Post' %>
@@ -31,6 +42,17 @@
     <div class="comment-container">
       <% @post.comments.each do |comment| %>
       <p><%= comment.author.name %> : <%= comment.text %></p>
+
+      <div>
+        <% if can?(:destroy, comment) %>
+          <%= link_to user_post_comment_path(@user, comment.post, comment.id), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+          } do %>
+          <button><%= t('.Delete Comment') %></button>
+          <% end %>
+        <% end %>
+      </div>
       <% end %>
     </div>
 </div>
