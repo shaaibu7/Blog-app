@@ -13,6 +13,16 @@ class CommentsController < ApplicationController
     else
       render :create
     end
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to request.referrer, notice: 'Comment was successfully added.' }
+        format.json { render Json: @comment, status: :created }
+      else
+        format.html { render :new }
+        format.json { render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
