@@ -110,6 +110,8 @@ h2 {
 
 .comment-and-likes {
   padding-top: 0.5rem;
+  width: 6rem;
+  color: red;
 }
 
 .comment-text {
@@ -138,6 +140,7 @@ h2 {
   margin-top: 1rem;
   background-color: brown;
   border-radius: 5px;
+  width: 48%;
 }
 
 .user-reg {
