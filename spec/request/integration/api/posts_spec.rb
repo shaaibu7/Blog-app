@@ -1,7 +1,6 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/posts', type: :request do
-
   path '/users/1/posts/' do
     get 'Retrieves all posts' do
       tags 'Posts'
@@ -9,14 +8,14 @@ RSpec.describe 'api/posts', type: :request do
 
       response '200', 'posts found' do
         schema type: :object,
-          properties: {
-            id: { type: :integer },
-            title: { type: :string },
-            text: { type: :string },
-            created_at: { type: :string },
-            updated_at: { type: :string }
-          },
-          required: [ 'id', 'title', 'text', 'created_at', 'updated_at' ]
+               properties: {
+                 id: { type: :integer },
+                 title: { type: :string },
+                 text: { type: :string },
+                 created_at: { type: :string },
+                 updated_at: { type: :string }
+               },
+               required: %w[id title text created_at updated_at]
 
         run_test!
       end

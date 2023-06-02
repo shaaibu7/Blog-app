@@ -17,7 +17,7 @@ gem 'sprockets-rails'
 group :development, :test do
   gem 'capybara'
   gem 'rspec-rails', '>= 3.9.0'
-  gem "rswag-specs"
+  gem 'rswag-specs'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
