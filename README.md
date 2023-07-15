@@ -5,7 +5,7 @@
 - [Blog-app](#vet_clinic)
   - [Getting Started](#getting-started)
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[Vet Clinic\] ](#-vet-clinic-)
+- [📖 \[Blog-app\] ](#-vet-clinic-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
